@@ -1,0 +1,175 @@
+#include <iostream>
+#define size 20
+
+using namespace std;
+class Candidate
+{
+
+private:
+    string Name;
+    string RegDate;
+    int Age;
+    string Type;
+
+public:
+    Candidate() {}
+    Candidate(string nm, string regdt,string typ, int ag) {
+        this->Name = nm;
+        this->RegDate = regdt;
+        this->Age = ag;
+        this->Type = typ;
+    }
+    string getName() {
+        return this->Name;
+    }
+    string getregdat() {
+        return this->RegDate;
+    }
+    int getage() {
+        return this->Age;
+    }
+    string gettype() {
+        return this->Type;
+    }
+    // ;
+};
+
+
+class Queue
+{
+public:
+    Candidate arrst[size];
+    Candidate arr[size];
+    int front = -1;
+    int rear = -1;
+
+    void enQueue(Candidate a) {
+        if (rear >= size) {
+            cout << "Queue is Full..." << endl;
+
+        }
+        else if (front == -1 && rear == -1) {
+            front++;
+            rear++;
+            arr[rear] = a;
+        }
+        else {
+            rear++;
+            arr[rear] = a;
+        }
+    }
+    void deQueue() {
+
+        if (front == -1 && rear == -1) {
+            cout << "Queue is empty...";
+        }
+        else {
+
+            front++;
+        }
+    }
+    void printQueue()
+    {
+        for (int i = 0; i <= rear; i++)
+        {
+            cout << "Candidate Name: " << arr[i].getName() << endl;
+            cout << "Registration Date: " << arr[i].getregdat() << endl;
+            cout << "Age: " << arr[i].getage() << endl;
+            cout << "Type: " << arr[i].gettype() << endl;
+
+            cout << "\n" << endl;
+
+
+            //
+        }
+    }
+
+};
+
+
+    int main()
+    {
+
+        Candidate s1("Shihab", "20-10-2021", "Student", 21);
+        Candidate s2("Nazmul",  "21-10-2021","Elderly", 27);
+        Candidate s3("Al-Amin",  "02-09-2021","Teacher", 25);
+        Candidate s4("Mishu",  "21-10-2021","Elderly", 35);
+        Queue q1;
+        Queue q2;
+        Queue q3;
+        Queue q4;
+
+        if (s1.gettype()== "Student"|| s1.gettype()== "Teacher")
+            {
+            q1.enQueue(s1);
+            }
+        else
+            {
+            q1.enQueue(s1);
+            }
+        if (s2.gettype()== "Student"|| s2.gettype()== "Teacher")
+            {
+            q2.enQueue(s2);
+            }
+        else
+            {
+            q2.enQueue(s2);
+            }
+        if (s3.gettype()== "Student"||s3.gettype()== "Teacher")
+            {
+            q3.enQueue(s3);
+            }
+        else
+            {
+            q3.enQueue(s3);
+            }
+        if (s4.gettype()== "Student"||s4.gettype()== "Teacher")
+            {
+            q4.enQueue(s4);
+            }
+        else
+            {
+            q4.enQueue(s4);
+            }
+        cout<<"To be Vaccinated:\n\n";
+        q1.printQueue();
+        q2.printQueue();
+        q3.printQueue();
+        q4.printQueue();
+
+        cout<<"Vaccination Done:\n\n";
+        if (s1.gettype()=="Elderly" || s2.gettype()=="Elderly"|| s3.gettype()=="Elderly" || s4.gettype()=="Elderly" ){
+        q1.deQueue();
+        q1.printQueue();
+        q2.deQueue();
+        q2.printQueue();
+        q3.deQueue();
+        q3.printQueue();
+        q4.deQueue();
+        q4.printQueue();
+        }
+        else if (s1.gettype()=="Teacher" || s2.gettype()=="Teacher"|| s3.gettype()=="Teacher" || s4.gettype()=="Teacher" ){
+        q1.deQueue();
+        q1.printQueue();
+        q2.deQueue();
+        q2.printQueue();
+        q3.deQueue();
+        q3.printQueue();
+        q4.deQueue();
+        q4.printQueue();
+        }
+        else if (s1.gettype()=="Student" || s2.gettype()=="Student"|| s3.gettype()=="Student" || s4.gettype()=="Student" ){
+        q1.deQueue();
+        q1.printQueue();
+        q2.deQueue();
+        q2.printQueue();
+        q3.deQueue();
+        q3.printQueue();
+        q4.deQueue();
+        q4.printQueue();
+
+        }
+
+        return 0;
+    }
+
